@@ -1,0 +1,179 @@
+/*
+* Any CSS file within this directory can be referenced here using a relative path.
+*
+* You're free to add application-wide styles to this file and they'll appear at the top of the
+* compiled file, but it's generally better to create a new file per style scope.
+*
+*= require reset
+*= require_self
+*/
+
+/* FONT STACK */
+body, input, select, textarea {
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    line-height: 1.1;
+}
+
+html {
+    background-color: #fff;
+    height 100%;
+}
+
+body {
+    background: #ffa;
+    color: #333;
+    margin: 0 auto;
+    min-width: 99%;
+    max-width: 99%;
+    border: 1px solid #000;
+    overflow-y auto;
+}
+
+#content {
+  padding: 0 1em;
+}
+
+/* replace with .no-boxshadow body if you have modernizr available */
+.ie6 body,
+.ie7 body,
+.ie8 body {
+    border-color: #255b17;
+    border-style: solid;
+    border-width: 0 1px;
+}
+
+.ie6 body {
+    height: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #48802c;
+    font-weight: bold;
+    margin: 0.8em 0 0.3em 0;
+}
+
+h1 {
+    font-size: 2.2em;
+}
+
+h2 {
+    font-size: 2em;
+}
+
+h3 {
+    font-size: 1.8em;
+}
+
+h4 {
+    font-size: 1.6em;
+}
+
+h5 {
+    font-size: 1.4em;
+}
+
+h6 {
+    font-size: 1.2em;
+}
+
+header, footer {
+    background: #bccf89;
+    color: #000;
+    clear: both;
+    padding: 1em;
+    min-height: 1em;
+}
+
+header {
+    margin-bottom: 1.5em;
+    border-bottom: 1px solid #000;
+}
+
+footer {
+    margin-top: 1.5em;
+    border-top: 1px solid #000;
+    font-size: 0.8em;
+}
+
+.spinner {
+    background: url(../images/spinner.gif) 50% 50% no-repeat transparent;
+    height: 16px;
+    width: 16px;
+    padding: 0.5em;
+    position: absolute;
+    right: 0;
+    top: 0;
+    text-indent: -9999px;
+}
+
+/* MESSAGES AND ERRORS */
+
+.errors, .message {
+    font-size: 0.8em;
+    line-height: 2;
+    margin: 1em 2em;
+    padding: 0.25em;
+}
+
+.message {
+    background: #f3f3ff;
+    border: 1px solid #8080ff;
+    color: #0000cc;
+    -moz-box-shadow: 0 0 0.25em #b2d1ff;
+    -webkit-box-shadow: 0 0 0.25em #b2d1ff;
+    box-shadow: 0 0 0.25em #b2d1ff;
+}
+
+.errors {
+    background: #fff3f3;
+    border: 1px solid #ffaaaa;
+    color: #cc0000;
+    -moz-box-shadow: 0 0 0.25em #ff8888;
+    -webkit-box-shadow: 0 0 0.25em #ff8888;
+    box-shadow: 0 0 0.25em #ff8888;
+}
+
+.errors ul, .message {
+    padding: 0;
+}
+
+.errors li {
+    list-style: none;
+    background: transparent url(../images/skin/exclamation.png) 0.5em 50% no-repeat;
+    text-indent: 2.2em;
+}
+
+.message {
+    background: transparent url(../images/skin/information.png) 0.5em 50% no-repeat;
+    text-indent: 2.2em;
+}
+
+.error input, .error select, .error textarea {
+    background: #fff3f3;
+    border-color: #ffaaaa;
+    color: #cc0000;
+}
+
+.error input:focus, .error select:focus, .error textarea:focus {
+    -moz-box-shadow: 0 0 0.5em #ffaaaa;
+    -webkit-box-shadow: 0 0 0.5em #ffaaaa;
+    box-shadow: 0 0 0.5em #ffaaaa;
+}
+
+/* same effects for browsers that support HTML5 client-side validation (these have to be specified separately or IE will ignore the entire rule) */
+
+input:invalid, select:invalid, textarea:invalid {
+    background: #fff3f3;
+    border-color: #ffaaaa;
+    color: #cc0000;
+}
+
+input:invalid:focus, select:invalid:focus, textarea:invalid:focus {
+    -moz-box-shadow: 0 0 0.5em #ffaaaa;
+    -webkit-box-shadow: 0 0 0.5em #ffaaaa;
+    box-shadow: 0 0 0.5em #ffaaaa;
+}
+
