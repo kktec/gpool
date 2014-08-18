@@ -115,3 +115,37 @@ log4j.main = {
            'org.hibernate',
            'net.sf.ehcache.hibernate'
 }
+
+
+// Spring Security Core plugin:
+grails.plugin.springsecurity.apf.filterProcessesUrl = '/security_check'
+grails.plugin.springsecurity.apf.usernameParameter = 'username'
+grails.plugin.springsecurity.apf.passwordParameter = 'password'
+
+grails.plugin.springsecurity.auth.loginFormUrl = '/guest/signIn'
+grails.plugin.springsecurity.failureHandler.defaultFailureUrl = '/guest/signIn?signInError=1'
+grails.plugin.springsecurity.successHandler.defaultTargetUrl = '/pool/home'
+grails.plugin.springsecurity.logout.afterLogoutUrl = '/guest/signIn'
+
+grails.plugin.springsecurity.adh.errorPage = '/denied'
+
+grails.plugin.springsecurity.userLookup.userDomainClassName = 'org.kktec.security.User'
+grails.plugin.springsecurity.userLookup.passwordPropertyName = 'passwordHash'
+grails.plugin.springsecurity.authority.className = 'org.kktec.security.Role'
+grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'org.kktec.security.UserRole'
+
+grails.plugin.springsecurity.controllerAnnotations.staticRules = [
+	'/': ['permitAll'],
+	'/index': ['permitAll'],
+	'/index.gsp': ['permitAll'],
+	'/assets/**': ['permitAll'],
+	'/**/js/**': ['permitAll'],
+	'/**/css/**': ['permitAll'],
+	'/**/images/**': ['permitAll'],
+	'/**/favicon.ico': ['permitAll'],
+	'/denied': ['permitAll'],
+	'/signOut': ['permitAll'],
+	
+	'/dbconsole*/**': ['ROLE_ADMIN'],
+]
+

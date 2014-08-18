@@ -49,6 +49,8 @@ grails.project.dependency.resolution = {
 	def gebVersion = '0.9.2'
 	def seleniumVersion = '2.42.2'
 
+	def springSecurityVersion = '2.0-RC4'
+	
     dependencies {
         // specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes e.g.
         // runtime 'mysql:mysql-connector-java:5.1.29'
@@ -82,5 +84,7 @@ grails.project.dependency.resolution = {
         //compile ":handlebars-asset-pipeline:1.3.0.3"
 		
 		test ":geb:$gebVersion"
+		
+		compile ":spring-security-core:$springSecurityVersion"
     }
 }

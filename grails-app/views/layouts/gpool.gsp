@@ -7,7 +7,10 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>${title}</title>
+        <title>
+            <g:if test="${title}">${title}</g:if>
+            <g:else><g:layoutTitle/></g:else>
+        </title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="shortcut icon" href="${assetPath(src: 'favicon.ico')}" type="image/x-icon">
         <link rel="apple-touch-icon" href="${assetPath(src: 'apple-touch-icon.png')}">
@@ -17,15 +20,27 @@
         <g:layoutHead/>
     </head>
     <body>
-        <header><h1>GPool - sports pools</h1></header>
+        <header>
+            <h1>GPool - sports pools</h1>            
+        </header>
+<%--        <div>--%>
+<%--            <sec:ifLoggedIn>--%>
+<%--                <ul>--%>
+<%--                    <li><g:link uri="/signOut">Sign Out</g:link></li>--%>
+<%--                    <li><g:link uri="/pool/home">Home</g:link></li>--%>
+<%--                    <li>Hi <sec:username/>, <g:link uri="/user/profile">Your Profile</g:link></li>--%>
+<%--                </ul>--%>
+<%--            </sec:ifLoggedIn>--%>
+<%--            <sec:ifNotLoggedIn><g:link uri="/">Home</g:link></sec:ifNotLoggedIn>--%>
+<%--        </div>--%>
         <div id="content">
-            <section><h3 id="heading">${title}</h3></section>
+            <h3 id="heading">${title}</h3>
             <g:if test="${flash.message}">
                 <section class="message">${flash.message}</section>
             </g:if>
             <g:layoutBody/>
         </div>
-        <footer>GPool is created by KK Technology Inc. &copy; 2014</footer>
+        <footer>GPool <strong>v<g:meta name="app.version"/></strong> is created by KK Technology Inc. &copy; 2014</footer>
         <div id="spinner" class="spinner" style="display:none;"><g:message code="spinner.alt" default="Loading&hellip;"/></div>
     </body>
 </html>

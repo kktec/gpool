@@ -26,4 +26,13 @@ class GuestControllerSpec extends Specification {
 		view == '/guest/register'
 		model.title == 'Register'
 	}
+	
+	def 'a guest can sign in'() {
+		when:
+		controller.signIn()
+		
+		then:
+		view == '/guest/signIn'
+		model.title == 'Sign In'
+	}
 }

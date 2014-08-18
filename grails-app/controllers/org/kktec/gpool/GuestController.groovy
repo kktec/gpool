@@ -1,5 +1,8 @@
 package org.kktec.gpool
 
+import grails.plugin.springsecurity.annotation.Secured
+
+@Secured(['permitAll'])
 class GuestController {
 
 	def welcome() { 
@@ -8,5 +11,9 @@ class GuestController {
 		
 	def register() {
 		render view: 'register', model: [title: 'Register']
+	}
+	
+	def signIn() {
+		render view: 'signIn', model: [title: 'Sign In']
 	}
 }

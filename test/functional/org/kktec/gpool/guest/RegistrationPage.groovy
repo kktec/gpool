@@ -4,7 +4,7 @@ import geb.Page
 
 class RegistrationPage extends Page {
 
-	static url = '/gpool/guest/register'
+	static url = 'guest/register'
 	
 	static at = { title == 'Register' }
 }
