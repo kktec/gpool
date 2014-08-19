@@ -23,20 +23,22 @@
         <header>
             <h1>GPool - sports pools</h1>            
         </header>
-        <ul id="tabs">
-            <li>
-                <ul>
-                  <sec:ifLoggedIn>
-                      <li><g:link uri="/signOut">Sign Out</g:link></li>
-                      <li><g:link uri="/pool/home">Home</g:link></li>
-                      <li><g:link uri="/user/profile">Your Profile</g:link></li>
-                  </sec:ifLoggedIn>
-                  <sec:ifNotLoggedIn>
-                      <li><g:link uri="/">Home</g:link></li>
-                  </sec:ifNotLoggedIn>
-                </ul>
-             </li>
-        </ul>
+        <div class="nav">
+            <ul>
+                <li>
+                    <ul>
+                      <sec:ifLoggedIn>
+                          <li><g:link uri="/signOut">Sign Out</g:link></li>
+                          <li><g:link uri="/pool/home" class="home">Home</g:link></li>
+                          <li><g:link uri="/user/profile">Your Profile</g:link></li>
+                      </sec:ifLoggedIn>
+                      <sec:ifNotLoggedIn>
+                          <li><g:link uri="/" class="home">Home</g:link></li>
+                      </sec:ifNotLoggedIn>
+                    </ul>
+                 </li>
+            </ul>
+        </div>
         <div id="content">
             <h3 id="heading">${title}</h3>
             <g:if test="${flash.message}">
@@ -44,7 +46,7 @@
             </g:if>
             <g:layoutBody/>
         </div>
-        <footer>GPool <span id="version">v<g:meta name="app.version"/></span> is created by KK Technology Inc. &copy; 2014</footer>
+        <footer>GPool v<g:meta name="app.version"/> is created by KK Technology Inc. &copy; 2014</footer>
         <div id="spinner" class="spinner" style="display:none;"><g:message code="spinner.alt" default="Loading&hellip;"/></div>
     </body>
 </html>
