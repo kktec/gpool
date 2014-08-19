@@ -5,6 +5,7 @@
 * compiled file, but it's generally better to create a new file per style scope.
 *
 *= require reset
+*= require ui-gpool/jquery-ui
 *= require_self
 */
 

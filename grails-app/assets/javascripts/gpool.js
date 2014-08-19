@@ -1,4 +1,5 @@
 //= require jquery
+//= require jquery-ui
 //= require_self
 
 if (typeof jQuery !== 'undefined') {

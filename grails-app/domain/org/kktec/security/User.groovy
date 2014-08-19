@@ -10,7 +10,7 @@ class User {
 	boolean passwordExpired
 	
 	Set<Role> getAuthorities() {
-		UserRole.findAllByUser(this).collect { it.role } as Set
+		UserRole.findAllByUser(this)*.role as Set
 	}
 	
 	String toString() {

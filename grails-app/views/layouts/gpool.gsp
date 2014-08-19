@@ -23,16 +23,20 @@
         <header>
             <h1>GPool - sports pools</h1>            
         </header>
-<%--        <div>--%>
-<%--            <sec:ifLoggedIn>--%>
-<%--                <ul>--%>
-<%--                    <li><g:link uri="/signOut">Sign Out</g:link></li>--%>
-<%--                    <li><g:link uri="/pool/home">Home</g:link></li>--%>
-<%--                    <li>Hi <sec:username/>, <g:link uri="/user/profile">Your Profile</g:link></li>--%>
-<%--                </ul>--%>
-<%--            </sec:ifLoggedIn>--%>
-<%--            <sec:ifNotLoggedIn><g:link uri="/">Home</g:link></sec:ifNotLoggedIn>--%>
-<%--        </div>--%>
+        <ul id="tabs">
+            <li>
+                <ul>
+                  <sec:ifLoggedIn>
+                      <li><g:link uri="/signOut">Sign Out</g:link></li>
+                      <li><g:link uri="/pool/home">Home</g:link></li>
+                      <li><g:link uri="/user/profile">Your Profile</g:link></li>
+                  </sec:ifLoggedIn>
+                  <sec:ifNotLoggedIn>
+                      <li><g:link uri="/">Home</g:link></li>
+                  </sec:ifNotLoggedIn>
+                </ul>
+             </li>
+        </ul>
         <div id="content">
             <h3 id="heading">${title}</h3>
             <g:if test="${flash.message}">
