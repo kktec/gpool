@@ -44,7 +44,7 @@
             </g:if>
             <g:layoutBody/>
         </div>
-        <footer>GPool <strong>v<g:meta name="app.version"/></strong> is created by KK Technology Inc. &copy; 2014</footer>
+        <footer>GPool <span id="version">v<g:meta name="app.version"/></span> is created by KK Technology Inc. &copy; 2014</footer>
         <div id="spinner" class="spinner" style="display:none;"><g:message code="spinner.alt" default="Loading&hellip;"/></div>
     </body>
 </html>
