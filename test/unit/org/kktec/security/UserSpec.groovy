@@ -1,4 +1,3 @@
-
 package org.kktec.security
 
 import grails.test.mixin.TestFor

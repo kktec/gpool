@@ -85,7 +85,10 @@ grails.project.dependency.resolution = {
 		test ":geb:$gebVersion"
 		
 		compile ":code-coverage:2.0.3-2"
+		compile ":codenarc:0.21"
 		
 		compile ":spring-security-core:$springSecurityVersion"
     }
 }
+
+codenarc.ruleSetFiles = 'file:grails-app/conf/rules.groovy'

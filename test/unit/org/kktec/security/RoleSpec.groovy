@@ -2,7 +2,7 @@ package org.kktec.security
 
 import grails.test.mixin.TestFor
 import spock.lang.Specification
-import spock.lang.Unroll;
+import spock.lang.Unroll
 
 @TestFor(Role)
 class RoleSpec extends Specification implements TestUserFactory {

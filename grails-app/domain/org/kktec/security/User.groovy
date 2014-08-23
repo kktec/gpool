@@ -1,7 +1,7 @@
 package org.kktec.security
 
 class User {
-
+	
 	String username
 	String passwordHash
 	boolean enabled
