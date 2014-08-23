@@ -1,7 +1,5 @@
 package org.kktec.security
 
-import org.kktec.security.Role;
-
 import grails.test.mixin.TestFor
 import spock.lang.Specification
 import spock.lang.Unroll;

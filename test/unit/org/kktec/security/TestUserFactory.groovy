@@ -1,8 +1,5 @@
 package org.kktec.security
 
-import org.kktec.security.Role;
-import org.kktec.security.User;
-
 trait TestUserFactory {
 	
 	User validUser(String username) {
