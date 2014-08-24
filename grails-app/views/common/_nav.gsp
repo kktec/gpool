@@ -3,6 +3,7 @@
         <li>
             <ul>
               <sec:ifLoggedIn>
+                  <li id="greeting">Welcome, <sec:username/></li>
                   <li><g:link uri="/pool/home" class="home">Home</g:link></li>
                   <li><g:link uri="/user/profile">Your Profile</g:link></li>
                   <li><g:link uri="/signOut">Sign Out</g:link></li>

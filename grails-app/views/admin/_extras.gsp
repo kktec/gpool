@@ -19,6 +19,7 @@
 $(function() {
     $('#extras').accordion({
       collapsible: true,
+      active: false,
       heightStyle: "content"
     });
 });
