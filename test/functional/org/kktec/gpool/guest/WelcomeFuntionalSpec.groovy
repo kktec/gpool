@@ -31,5 +31,7 @@ class WelcomeFuntionalSpec extends GebReportingSpec {
 		then:
 		at WelcomePage
 		signIn
+		info
+		
 	}
 }

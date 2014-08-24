@@ -9,4 +9,9 @@ class HomePage extends Page {
 	static at = {
 		title == 'Home'
 	}
+	
+	static content = {
+		info { $('#info') }
+		extras(required: false) { $('#extras') }
+	}
 }

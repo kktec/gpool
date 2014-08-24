@@ -28,7 +28,12 @@
             <g:render template="/common/heading"/>
             <g:layoutBody/>
         </div>
-        <footer>GPool v<g:meta name="app.version"/> is created by KK Technology Inc. &copy; 2014</footer>
+        <footer>
+            <div id="info">
+                GPool v<g:meta name="app.version"/> is created by KK Technology Inc. &copy; 2014
+            </div>
+            <g:render template="/admin/extras"></g:render>
+        </footer>
         <div id="spinner" class="spinner" style="display:none;"><g:message code="spinner.alt" default="Loading&hellip;"/></div>
     </body>
 </html>

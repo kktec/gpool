@@ -14,5 +14,6 @@ class WelcomePage extends Page {
 	static content = {
 		register { $('a', text: 'Register') }
 		signIn { $('a', text: 'Sign In') }
+		info { $('#info') }
 	}
 }
