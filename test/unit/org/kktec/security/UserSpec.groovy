@@ -57,6 +57,25 @@ class UserSpec extends Specification implements TestUserFactory {
 		'a'.padRight(60, '_') || null
 	}
 
+	@Unroll
+	def 'email with value #value validation error is #error'() {
+		given:
+		mockForConstraintsTests(User, [validUser('ken'), user])
+		user.email = value
+		user.validate()
+		
+		expect:
+		user.errors.email == error
+		
+		where:
+		value                           || error
+		' '                             || 'blank'
+		'abcdefg'                       || 'email'
+		'k'.padRight(46, 'a') + '@a.co' || 'maxSize'
+		'k'.padRight(45, 'a') + '@a.co' || null
+		'ken@kktec.org'                 || null
+	}
+
 	def 'can convert User toString'() {
 		expect:
 		user.toString() == 'ken'

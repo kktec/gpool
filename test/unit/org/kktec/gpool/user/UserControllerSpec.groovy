@@ -34,9 +34,11 @@ class UserControllerSpec extends Specification implements TestUserFactory {
 		controller.profile()
 		
 		then:
+		1 * springSecurityService.currentUser >> user
 		0 * _
 		view == '/user/profile'
 		model.title == 'Profile'
+		model.email == 'user@kktec.org'
 	}
 	
 	def 'a user can change their password'() {
@@ -49,14 +51,16 @@ class UserControllerSpec extends Specification implements TestUserFactory {
 		model.title == 'Change Password'
 	}
 
-	def 'a user can change their email'() {
+	def 'a user can change their profile'() {
 		when:
-		controller.changeEmail()
+		controller.changeProfile()
 		
 		then:
+		1 * springSecurityService.currentUser >> user
 		0 * _
-		view == '/user/changeEmail'
-		model.title == 'Change Email'
+		view == '/user/changeProfile'
+		model.title == 'Change Profile'
+		model.user == user
 	}
 	
 	def 'a user can update their password'() {
@@ -88,6 +92,33 @@ class UserControllerSpec extends Specification implements TestUserFactory {
 		model.title == 'Change Password'
 		model.command == command
 		flash.message == 'Your password has NOT been updated'
+	}
+	
+	def 'a user can update their profile'() {
+		when:
+		controller.updateProfile('xyz@x.com')
+		
+		then:
+		1 * springSecurityService.currentUser >> user
+		user.email == 'xyz@x.com'
+		1 * userService.saveUser(user) >> true
+		0 * _
+		response.redirectedUrl == '/user/profile'
+		flash.message == 'Your profile has been updated'
+	}
+	
+	def 'a user can NOT update an invalid profile'() {
+		when:
+		controller.updateProfile('')
+		
+		then:
+		1 * springSecurityService.currentUser >> user
+		user.email == ''
+		1 * userService.saveUser(user) >> false
+		0 * _
+		view == '/user/changeProfile'
+		model.title == 'Change Profile'
+		model.user == user
 	}
 	
 }

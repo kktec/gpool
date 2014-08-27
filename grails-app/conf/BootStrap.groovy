@@ -35,12 +35,28 @@ class BootStrap {
 	}
 	
 	private initUsers() {
-		User ken = new User(username: 'ken', passwordHash: springSecurityService.encodePassword('nekken'), enabled: true)
-			.save(failOnError: true)
-		User dave = new User(username: 'dave', passwordHash: springSecurityService.encodePassword('evaddave'), enabled: true)
-			.save(failOnError: true)
-		User carol = new User(username: 'carol', passwordHash: springSecurityService.encodePassword('mommom'), enabled: true)
-			.save(failOnError: true)
+		User ken = new User(
+			username: 'ken',
+			passwordHash:
+			springSecurityService.encodePassword('nekken'),
+			email: 'ken@kktec.org',
+			enabled: true
+		).save(failOnError: true)
+		
+		User dave = new User(
+			username: 'dave',
+			passwordHash: springSecurityService.encodePassword('evaddave'),
+			email: 'dave@kktec.org',
+			enabled: true
+		).save(failOnError: true)
+		
+		User carol = new User(
+			username: 'carol',
+			passwordHash: springSecurityService.encodePassword('mommom'),
+			email: 'carol@kktec.org',
+			enabled: true
+		).save(failOnError: true)
+			
 		new UserRole(user: ken, role: user)	
 			.save(failOnError: true)
 		new UserRole(user: ken, role: pool)	

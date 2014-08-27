@@ -14,7 +14,8 @@ class UserController {
 	def userService
 	
 	def profile() {
-		render view: 'profile', model: [title: 'Profile']
+		User user = springSecurityService.currentUser
+		render view: 'profile', model: [title: 'Profile', email: user.email]
 	}
 	
 	def changePassword(PasswordCommand command) {
@@ -39,8 +40,21 @@ class UserController {
 		changePassword(command)
 	}
 
-	def changeEmail() {
-		render view: 'changeEmail',  model: [title: 'Change Email']
+	def changeProfile(User user) {
+		User theUser = user ?: springSecurityService.currentUser
+		render view: 'changeProfile',  model: [title: 'Change Profile', user: theUser]
+	}
+	
+	def updateProfile(String email) {
+		User user = springSecurityService.currentUser
+		user.email = email
+		if (userService.saveUser(user)) {
+			flash.message = 'Your profile has been updated'
+			redirect action: 'profile'
+			return
+		}
+		
+		changeProfile(user)
 	}
 
 }

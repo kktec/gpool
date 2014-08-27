@@ -11,8 +11,8 @@ class ProfilePage extends Page {
 	}
 	
 	static content = {
-		changePassword { $('a', text: 'Change Password') }
 		email { $('#email') }
-		changeEmail { $('a', text: 'Change Email') }
+		changePassword { $('a', text: 'Change Password') }
+		changeProfile{ $('a', text: 'Change Profile') }
 	}
 }

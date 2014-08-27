@@ -9,16 +9,16 @@ class ProfileFunctionalSpec extends GPoolFunctionalSpec {
 		go 'user/profile'
 	}
 	
-	def 'a user can change their email'() {
+	def 'a user can change their profile'() {
 		expect:
 		at ProfilePage
 		email()
 		
 		when:
-		changeEmail().click()
+		changeProfile().click()
 		
 		then:
-		at ChangeEmailPage
+		at ChangeProfilePage
 	}
 
 	def 'a user can change their password'() {

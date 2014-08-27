@@ -21,6 +21,4 @@ class ChangePasswordFunctionalSpec extends GPoolFunctionalSpec {
 		then:
 		at ProfilePage
 	}
-	
-
 }
