@@ -2,7 +2,7 @@ package org.kktec.security
 
 import grails.test.spock.IntegrationSpec
 
-class UseIntegrationSpec extends IntegrationSpec {
+class UserIntegrationSpec extends IntegrationSpec {
 
 	def 'a user should have roles'() {
 		given:

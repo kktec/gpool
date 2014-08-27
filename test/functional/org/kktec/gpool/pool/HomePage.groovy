@@ -13,5 +13,6 @@ class HomePage extends Page {
 	static content = {
 		info { $('#info') }
 		extras(required: false) { $('#extras') }
+		profile { $('a', text: 'Your Profile') }
 	}
 }

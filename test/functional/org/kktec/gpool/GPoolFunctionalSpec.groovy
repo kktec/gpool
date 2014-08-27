@@ -5,15 +5,15 @@ import geb.spock.GebReportingSpec
 abstract class GPoolFunctionalSpec extends GebReportingSpec {
 	
 	protected final signInWithRoleUser() {
-		signIn 'carol', 'mom'
+		signIn 'carol', 'mommom'
 	}
 	
 	protected final signInWithRolePool() {
-		signIn 'dave', 'evad'
+		signIn 'dave', 'evaddave'
 	}
 	
 	protected final signInWithRoleAdmin() {
-		signIn 'ken', 'nek'
+		signIn 'ken', 'nekken'
 	}
 	
 	protected final signIn(String username, String password) {

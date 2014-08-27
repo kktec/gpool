@@ -35,11 +35,11 @@ class BootStrap {
 	}
 	
 	private initUsers() {
-		User ken = new User(username: 'ken', passwordHash: springSecurityService.encodePassword('nek'), enabled: true)
+		User ken = new User(username: 'ken', passwordHash: springSecurityService.encodePassword('nekken'), enabled: true)
 			.save(failOnError: true)
-		User dave = new User(username: 'dave', passwordHash: springSecurityService.encodePassword('evad'), enabled: true)
+		User dave = new User(username: 'dave', passwordHash: springSecurityService.encodePassword('evaddave'), enabled: true)
 			.save(failOnError: true)
-		User carol = new User(username: 'carol', passwordHash: springSecurityService.encodePassword('mom'), enabled: true)
+		User carol = new User(username: 'carol', passwordHash: springSecurityService.encodePassword('mommom'), enabled: true)
 			.save(failOnError: true)
 		new UserRole(user: ken, role: user)	
 			.save(failOnError: true)
