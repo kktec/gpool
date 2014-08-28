@@ -20,5 +20,6 @@ class ChangePasswordFunctionalSpec extends GPoolFunctionalSpec {
 		
 		then:
 		at ProfilePage
+		message() == 'Your password has been updated'
 	}
 }

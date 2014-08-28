@@ -28,6 +28,7 @@
             <g:render template="/common/heading"/>
             <g:layoutBody/>
         </div>
+        <br/>
         <footer>
             <div id="info">
                 GPool v<g:meta name="app.version"/> is created by KK Technology Inc. &copy; 2014

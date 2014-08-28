@@ -4,12 +4,7 @@
     <meta name="layout" content="gpool"/>
 </head>
 <body>
-    <g:hasErrors>
-        <div class="errors">
-            <g:eachError><p><g:message error="${it}"/></p></g:eachError>
-        </div>
-    </g:hasErrors>
-
+    <g:render template="/common/errors"/>
     <g:form action="updatePassword">
           <fieldset class="form">
               <div class="fieldcontain required">

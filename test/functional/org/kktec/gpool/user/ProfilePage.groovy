@@ -14,5 +14,6 @@ class ProfilePage extends Page {
 		email { $('#email') }
 		changePassword { $('a', text: 'Change Password') }
 		changeProfile{ $('a', text: 'Change Profile') }
+		message(required: false) { $('#message').text() }
 	}
 }

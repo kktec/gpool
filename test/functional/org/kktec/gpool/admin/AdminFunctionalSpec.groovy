@@ -26,7 +26,7 @@ class AdminFunctionalSpec extends GPoolFunctionalSpec {
 		title == 'Access Denied'
 	}
 
-	def 'a user with ROLE_ADMIN can view the Admin page'() {
+	def 'a user with ROLE_ADMIN can view the Admin page and User list'() {
 		given:
 		signInWithRoleAdmin()
 		
@@ -36,5 +36,21 @@ class AdminFunctionalSpec extends GPoolFunctionalSpec {
 		then:
 		at AdminPage
 		users()
+		addUser()
+	}
+	
+	def 'a user with ROLE_ADMIN can add a new User'() {
+		given:
+		signInWithRoleAdmin()
+		go 'admin'
+		
+		expect:
+		at AdminPage
+		
+		when:
+		addUser().click()
+		
+		then:
+		at AddUserPage
 	}
 }

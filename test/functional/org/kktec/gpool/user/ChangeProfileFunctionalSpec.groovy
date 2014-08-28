@@ -21,5 +21,6 @@ class ChangeProfileFunctionalSpec extends GPoolFunctionalSpec {
 		then:
 		at ProfilePage
 		email().value() == 'davey@kktec.com'
+		message() == 'Your profile has been updated'
 	}
 }

@@ -13,6 +13,7 @@
         <table id="users">
             <thead>
                 <tr>
+                    <th>Id</th>
                     <th>Username</th>
                     <th>Email</th>
                     <th>Enabled</th>
@@ -22,6 +23,7 @@
             <tbody>
             <g:each var='u' in="${users}">
                 <tr>
+                    <td>${u.id}</td>
                     <td>${u.username}</td>
                     <td>${u.email}</td>
                     <td>${u.enabled}</td>
@@ -31,6 +33,12 @@
             </tbody>
         </table>
     </div>
+  <br/>
+  <div class="nav">
+      <ul>
+          <li><g:link action="addUser">Add User</g:link></li>
+      </ul>
+   </div>
     
 <g:javascript>
     $(document).ready(function() {

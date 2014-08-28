@@ -12,5 +12,7 @@ class AdminPage extends Page {
 	
 	static content = {
 		users { $('#users') }
+		addUser { $('a', text: 'Add User') }
+		message(required: false) { $('#message').text() }
 	}
 }
