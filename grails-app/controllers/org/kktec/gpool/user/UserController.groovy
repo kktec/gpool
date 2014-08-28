@@ -27,8 +27,7 @@ class UserController {
 		if (!command.hasErrors()) {
 			User user = springSecurityService.currentUser
 			user.passwordHash = springSecurityService.encodePassword(command.newPassword)
-			def saved = userService.saveUser(user)
-			if (saved) {
+			if (userService.saveUser(user)) {
 				springSecurityService.reauthenticate(user.username)
 				flash.message = 'Your password has been updated'
 				redirect action: 'profile'

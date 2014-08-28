@@ -71,7 +71,7 @@ class UserControllerSpec extends Specification implements TestUserFactory {
 		1 * springSecurityService.currentUser >> user
 		1 * springSecurityService.encodePassword('123456') >> '123'
 		user.passwordHash == '123'
-		1 * userService.saveUser(user) >> true
+		1 * userService.saveUser(user) >> user
 		1 * springSecurityService.reauthenticate(user.username)
 		0 * _
 		response.redirectedUrl == '/user/profile'
@@ -86,7 +86,7 @@ class UserControllerSpec extends Specification implements TestUserFactory {
 		1 * springSecurityService.currentUser >> user
 		1 * springSecurityService.encodePassword('123456') >> '123'
 		user.passwordHash == '123'
-		1 * userService.saveUser(user) >> false
+		1 * userService.saveUser(user) >> null
 		0 * _
 		view == '/user/changePassword'
 		model.title == 'Change Password'
@@ -101,7 +101,7 @@ class UserControllerSpec extends Specification implements TestUserFactory {
 		then:
 		1 * springSecurityService.currentUser >> user
 		user.email == 'xyz@x.com'
-		1 * userService.saveUser(user) >> true
+		1 * userService.saveUser(user) >> user
 		0 * _
 		response.redirectedUrl == '/user/profile'
 		flash.message == 'Your profile has been updated'
@@ -114,7 +114,7 @@ class UserControllerSpec extends Specification implements TestUserFactory {
 		then:
 		1 * springSecurityService.currentUser >> user
 		user.email == ''
-		1 * userService.saveUser(user) >> false
+		1 * userService.saveUser(user) >> null
 		0 * _
 		view == '/user/changeProfile'
 		model.title == 'Change Profile'

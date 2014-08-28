@@ -64,7 +64,7 @@ class AdminControllerSpec extends Specification {
 				enabled
 				passwordHash == 'newuser_hash'
 			}
-			true
+			user
 		}
 		0 * _
 		flash.message == 'Added a new User: newby'
@@ -77,7 +77,7 @@ class AdminControllerSpec extends Specification {
 		
 		then:
 		1 * springSecurityService.encodePassword('newuser') >> 'newuser_hash'
-		1 * userService.saveUser(_) >> false
+		1 * userService.saveUser(_) >> null
 		0 * _
 		view == '/admin/addUser'
 		model.user

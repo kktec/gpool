@@ -2,7 +2,14 @@ package org.kktec.security
 
 class UserService {
 	
-	boolean saveUser(User user) {
+	/**
+	 * Saves a new or existing User. A new User will be provided with ROLE_USER
+	 * 
+	 * @param user
+	 * 
+	 * @return user on success or null
+	 */
+	User saveUser(User user) {
 		boolean newUser = user.id == null 
 		def result = user.save(flush: true)
 		if (newUser && result) {
@@ -12,5 +19,8 @@ class UserService {
 		result
 	}
 
+	/**
+	 * @return List of all Users
+	 */
 	List users() { User.list() }
 }
