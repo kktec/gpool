@@ -14,6 +14,13 @@
                         <g:link uri="/user/profile">Your Profile</g:link>
                     </g:if>
                   </li>
+                  <sec:ifAllGranted roles="ROLE_ADMIN">
+                      <li>
+                        <g:if test="${title != 'Admin'}">
+                            <g:link uri="/admin">Admin</g:link>
+                        </g:if>
+                      </li>
+                  </sec:ifAllGranted>
                   <li><g:link uri="/signOut">Sign Out</g:link></li>
               </sec:ifLoggedIn>
               <sec:ifNotLoggedIn>

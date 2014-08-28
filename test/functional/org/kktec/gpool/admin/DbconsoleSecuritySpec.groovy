@@ -4,7 +4,7 @@ import org.kktec.gpool.GPoolFunctionalSpec
 
 class DbconsoleSecuritySpec extends GPoolFunctionalSpec {
 	
-	def 'a user with Role User can NOT access dbconsole'() {
+	def 'a user with ROLE_USER can NOT access dbconsole'() {
 		given:
 		signInWithRoleUser()
 		
@@ -12,10 +12,10 @@ class DbconsoleSecuritySpec extends GPoolFunctionalSpec {
 		go 'dbconsole'
 		
 		then:
-		title.contains('Access Denied')
+		title == 'Access Denied'
 	}
 	
-	def 'a user with Role Pool can NOT access dbconsole'() {
+	def 'a user with ROLE_POOL can NOT access dbconsole'() {
 		given:
 		signInWithRolePool()
 		
@@ -23,10 +23,10 @@ class DbconsoleSecuritySpec extends GPoolFunctionalSpec {
 		go 'dbconsole'
 		
 		then:
-		title.contains('Access Denied')
+		title == 'Access Denied'
 	}
 
-	def 'a user with Role Admin can access dbconsole'() {
+	def 'a user with ROLE_ADMIN can access dbconsole'() {
 		given:
 		signInWithRoleAdmin()
 		

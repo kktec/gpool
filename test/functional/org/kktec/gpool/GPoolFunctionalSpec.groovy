@@ -22,4 +22,6 @@ abstract class GPoolFunctionalSpec extends GebReportingSpec {
 		$('input[name=password]').value(password)
 		$('input[type=submit]').click()
 	}
+	
+	protected final signOut() { go '/signOut' }
 }
