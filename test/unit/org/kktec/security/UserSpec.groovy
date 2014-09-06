@@ -32,13 +32,13 @@ class UserSpec extends Specification implements TestUserFactory {
 		user.errors.username == error
 		
 		where:
-		value                 || error
-		' '                   || 'blank'
-		'ab'                  || 'minSize'
-		'abc'                 || null
-		'a'.padRight(21, '_') || 'maxSize'
-		'a'.padRight(20, '_') || null
-		'ken'                 || 'unique'
+		value                  || error
+		' '                    || 'blank'
+		'ab'                   || 'minSize'
+		'abc'                  || null
+		'21'.padRight(21, 'a') || 'maxSize'
+		'20'.padRight(20, 'a') || null
+		'ken'                  || 'unique'
 	}
 
 	@Unroll
@@ -51,10 +51,10 @@ class UserSpec extends Specification implements TestUserFactory {
 		user.errors.passwordHash == error
 		
 		where:
-		value                 || error
-		' '                   || 'blank'
-		'a'.padRight(61, '_') || 'maxSize'
-		'a'.padRight(60, '_') || null
+		value                  || error
+		' '                    || 'blank'
+		'61'.padRight(61, 'a') || 'maxSize'
+		'60'.padRight(60, 'a') || null
 	}
 
 	@Unroll
@@ -68,12 +68,12 @@ class UserSpec extends Specification implements TestUserFactory {
 		user.errors.email == error
 		
 		where:
-		value                           || error
-		' '                             || 'blank'
-		'abcdefg'                       || 'email'
-		'k'.padRight(46, 'a') + '@a.co' || 'maxSize'
-		'k'.padRight(45, 'a') + '@a.co' || null
-		'ken@kktec.org'                 || null
+		value                            || error
+		' '                              || 'blank'
+		'abcdefg'                        || 'email'
+		'46'.padRight(46, 'a') + '@a.co' || 'maxSize'
+		'45'.padRight(45, 'a') + '@a.co' || null
+		'ken@kktec.org'                  || null
 	}
 
 	def 'can convert User toString'() {

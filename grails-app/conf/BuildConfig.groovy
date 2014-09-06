@@ -3,8 +3,8 @@ grails.project.class.dir = "target/classes"
 grails.project.test.class.dir = "target/test-classes"
 grails.project.test.reports.dir = "target/test-reports"
 grails.project.work.dir = "target/work"
-grails.project.target.level = 1.6
-grails.project.source.level = 1.6
+grails.project.target.level = 1.7
+grails.project.source.level = 1.7
 //grails.project.war.file = "target/${appName}-${appVersion}.war"
 
 grails.project.fork = [
@@ -60,6 +60,8 @@ grails.project.dependency.resolution = {
 		test "org.gebish:geb-spock:$gebVersion"
 		test "org.seleniumhq.selenium:selenium-support:$seleniumVersion"
 		test "org.seleniumhq.selenium:selenium-htmlunit-driver:$seleniumVersion"
+		
+		compile "org.jadira.usertype:usertype.jodatime:2.0.1"
     }
 
     plugins {
@@ -88,6 +90,8 @@ grails.project.dependency.resolution = {
 		compile ":codenarc:0.21"
 		
 		compile ":spring-security-core:$springSecurityVersion"
+		
+		compile ":joda-time:1.5"
     }
 }
 

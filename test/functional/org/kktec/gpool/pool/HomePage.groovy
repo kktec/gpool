@@ -14,5 +14,6 @@ class HomePage extends Page {
 		info { $('#info') }
 		extras(required: false) { $('#extras') }
 		profile { $('a', text: 'Your Profile') }
+		scheduling(required: false)  { $('a', text: 'Scheduling') }
 	}
 }

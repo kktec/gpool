@@ -3,7 +3,6 @@ package org.kktec.gpool.admin
 import grails.plugin.springsecurity.SpringSecurityService
 import grails.test.mixin.TestFor
 
-import org.kktec.security.Role
 import org.kktec.security.User
 import org.kktec.security.UserService
 

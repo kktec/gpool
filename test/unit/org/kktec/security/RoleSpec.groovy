@@ -32,11 +32,11 @@ class RoleSpec extends Specification implements TestUserFactory {
 		role.errors.authority == error
 		
 		where:
-		value                 || error
-		' '                   || 'blank'
-		'a'.padRight(51, '_') || 'maxSize'
-		'a'.padRight(50, '_') || null
-		'ROLE_USER'           || 'unique'
+		value                  || error
+		' '                    || 'blank'
+		'51'.padRight(51, 'a') || 'maxSize'
+		'50'.padRight(50, 'a') || null
+		'ROLE_USER'            || 'unique'
 	}
 	
 	def 'can convert Role toString'() {
