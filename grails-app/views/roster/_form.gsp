@@ -6,7 +6,7 @@
     </div>
     <div class="fieldcontain required">
         <label for="name">Type:</label>
-        <g:select id="type" name='type.id' value="${roster.type?.id}"
+        <g:select id="type" name='type' value="${roster.type?.id}"
             noSelection="${['null':'Select One...']}"
             from='${types}'
             optionKey="id" optionValue="name"></g:select>

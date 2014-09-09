@@ -29,8 +29,8 @@ class RostersFunctionalSpec extends GPoolFunctionalSpec {
 		
 		when:
 		name().value('MLB')
-		type().value('Baseball')
-		saveType().click()
+		type().value 'Baseball'
+		saveRoster().click()
 
 		then:
 		at RostersPage
@@ -38,7 +38,7 @@ class RostersFunctionalSpec extends GPoolFunctionalSpec {
 	
 	static content = {
 		name { $('input', name: 'name') }
-		type { $('select', name: 'type.id') }
+		type { $('form').type }
 		saveRoster { $('input', type: 'submit') }
 		id { $('input', name: 'id') }
 	}
