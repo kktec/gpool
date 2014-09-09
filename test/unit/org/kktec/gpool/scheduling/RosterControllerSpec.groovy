@@ -13,6 +13,8 @@ class RosterControllerSpec extends Specification implements TestSchedulingFactor
 	
 	List rosters = [validRoster()]
 	
+	List types = [validType()]
+	
 	def setup() {
 		controller.schedulingService = schedulingService
 	}
@@ -27,6 +29,48 @@ class RosterControllerSpec extends Specification implements TestSchedulingFactor
 		view == '/roster/rosters'
 		model.title == 'Rosters'
 		model.rosters == rosters
+	}
+	
+	def 'a pool user can add a new Roster'() {
+		when:
+		controller.addNew()
+		
+		then:
+		1 * schedulingService.types() >> types
+		0 * _
+		view == '/roster/addNew'
+		model.title == 'Add New Roster'
+		model.roster
+		model.types == types
+	}
+	
+	def 'a pool user can save a new valid Roster'() {
+		given:
+		Roster roster = rosters[0]
+		roster.id = 1
+		
+		when:
+		controller.saveNew(roster)
+		
+		then:
+		1 * schedulingService.saveRoster(roster) >> roster
+		0 * _
+		flash.message == 'Roster 1 has been added'
+		response.redirectedUrl == '/roster/rosters'
+	}
+
+	def 'a pool user can NOT save a new invalid Roster'() {
+		given:
+		Roster roster = new Roster()
+		
+		when:
+		controller.saveNew(roster)
+		
+		then:
+		1 * schedulingService.saveRoster(roster) >> null
+		1 * schedulingService.types() >> types
+		0 * _
+		view == '/roster/addNew'
 	}
 	
 	def 'can delete a Roster'() {

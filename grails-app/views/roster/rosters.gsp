@@ -30,7 +30,13 @@
             </tbody>
         </table>
     </div>
-  <br/>
+    <br/>
+    <div class="nav">
+        <ul>
+            <li><g:link action="addNew">Add New Roster</g:link></li>
+        </ul>
+     </div>
+    <br/>
 <g:javascript>
     $(document).ready(function() {
         $('#rosters').dataTable({

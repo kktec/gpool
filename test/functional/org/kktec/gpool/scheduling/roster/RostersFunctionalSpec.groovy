@@ -14,5 +14,32 @@ class RostersFunctionalSpec extends GPoolFunctionalSpec {
 		then:
 		at RostersPage
 		rosters()
+		addNew()
+	}
+	
+	def 'a pool user can add a new Roster'() {
+		given:
+		signInWithRolePool()
+		
+		when:
+		go 'roster/addNew'
+		
+		then:
+		title == 'Add New Roster'
+		
+		when:
+		name().value('MLB')
+		type().value('Baseball')
+		saveType().click()
+
+		then:
+		at RostersPage
+	}
+	
+	static content = {
+		name { $('input', name: 'name') }
+		type { $('select', name: 'type.id') }
+		saveRoster { $('input', type: 'submit') }
+		id { $('input', name: 'id') }
 	}
 }

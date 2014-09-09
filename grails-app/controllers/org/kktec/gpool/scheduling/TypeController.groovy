@@ -19,6 +19,7 @@ class TypeController {
 	
 	def saveNew(Type type) {
 		if (schedulingService.saveType(type)) {
+			flash.message = "Type $type.id has been added"
 			redirect action: 'types'
 			return
 		}

@@ -42,7 +42,8 @@ class TypeControllerSpec extends Specification implements TestSchedulingFactory 
 	
 	def 'a pool user can save a new valid Type'() {
 		given:
-		Type type = new Type('someType')
+		Type type = types[0]
+		type.id = 1
 		
 		when:
 		controller.saveNew(type)
@@ -50,6 +51,7 @@ class TypeControllerSpec extends Specification implements TestSchedulingFactory 
 		then:
 		1 * schedulingService.saveType(type) >> type
 		0 * _
+		flash.message == 'Type 1 has been added'
 		response.redirectedUrl == '/type/types'
 	}
 

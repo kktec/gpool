@@ -12,5 +12,6 @@ class RostersPage extends Page {
 	
 	static content = {
 		rosters { $('#rosters') }
+		addNew { $('a', text: 'Add New Roster') }
 	}
 }
