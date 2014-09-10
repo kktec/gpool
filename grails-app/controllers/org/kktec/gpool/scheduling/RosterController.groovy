@@ -32,6 +32,26 @@ class RosterController {
 		addNew(roster)
 	}
 	
+	def edit(Long id) {
+		Roster roster = schedulingService.roster(id)
+		render view: 'edit', model: [title: 'Edit Roster', roster: roster]
+	}
+	
+	def update(Long id) {
+		Roster roster = schedulingService.roster(id)
+		if (roster) {
+			roster.name = params.name
+			if (!schedulingService.saveRoster(roster)) {
+				render view: 'edit', model: [title: 'Edit Roster', roster: roster]
+				return
+			}
+			flash.message = "Roster $roster.id has been updated"
+		} else {
+			flash.message = "Roster $id could not be found"
+		}
+		redirect action: 'rosters'
+	}
+	
 	def delete(Long id) {
 		try {
 			schedulingService.deleteRoster(id)

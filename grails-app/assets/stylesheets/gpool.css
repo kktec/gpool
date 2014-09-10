@@ -311,6 +311,13 @@ input, select, textarea {
     margin-left: 0.5em;
 }
 
+.property {
+    border: 1px solid #cccccc;
+    font-size: 1em;
+    padding: 0.2em 0.4em;
+    margin-left: 0.5em;
+}
+
 select {
     padding: 0.2em 0.2em 0.2em 0;
 }

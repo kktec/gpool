@@ -20,10 +20,10 @@
             <tbody>
             <g:each var='r' in="${rosters}">
                 <tr>
-                    <td>${r.id}</td>
+                    <td><g:link action="edit" id="${r.id}">${r.id}</g:link></td>
                     <td>${r.name}</td>
                     <td>${r.type}</td>
-                    <td>${r.contestants.size()}</td>
+                    <td><g:link action="contestants" id="${r.id}">${r.contestants.size()}</g:link></td>
                     <td><g:render template="/common/delete" model="[id: r.id, name: r.name, type: 'Roster']"/></td>
                 </tr>
             </g:each>

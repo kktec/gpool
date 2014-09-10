@@ -15,6 +15,8 @@ class SchedulingService {
 	
 	List rosters() { Roster.list() }
 	
+	Roster roster(Long id) { Roster.get id }
+	
 	Roster saveRoster(Roster roster) { roster.save(flush: true) }
 	
 	void deleteRoster(Long id) {

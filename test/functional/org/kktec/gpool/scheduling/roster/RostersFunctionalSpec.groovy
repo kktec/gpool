@@ -29,7 +29,26 @@ class RostersFunctionalSpec extends GPoolFunctionalSpec {
 		
 		when:
 		name().value('MLB')
-		type().value 'Baseball'
+		$('form').type = 'Baseball'
+		saveRoster().click()
+
+		then:
+		at RostersPage
+	}
+	
+	def 'a pool user can edit a Roster'() {
+		given:
+		signInWithRolePool()
+		
+		when:
+		go 'roster/edit/1'
+		
+		then:
+		title == 'Edit Roster'
+		id().value() == '1'
+		
+		when:
+		name().value('ACME')
 		saveRoster().click()
 
 		then:
@@ -38,7 +57,6 @@ class RostersFunctionalSpec extends GPoolFunctionalSpec {
 	
 	static content = {
 		name { $('input', name: 'name') }
-		type { $('form').type }
 		saveRoster { $('input', type: 'submit') }
 		id { $('input', name: 'id') }
 	}

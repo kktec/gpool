@@ -73,6 +73,72 @@ class RosterControllerSpec extends Specification implements TestSchedulingFactor
 		view == '/roster/addNew'
 	}
 	
+	def 'a pool user can edit a Roster'() {
+		given:
+		Long id = 1
+		Roster roster = new Roster(name: 'someRoster', type: types[0])
+		
+		when:
+		controller.edit(id)
+		
+		then:
+		1 * schedulingService.roster(id) >> roster
+		0 * _
+		view == '/roster/edit'
+		model.title == 'Edit Roster'
+		model.roster == roster
+	}
+	
+	def 'a pool user can update a valid Roster'() {
+		given:
+		Long id = 1
+		Roster roster = validRoster()
+		roster.id = id
+		params.name = 'aRoster'
+		
+		when:
+		controller.update(id)
+		
+		then:
+		1 * schedulingService.roster(id) >> roster
+		roster.name == 'aRoster'
+		1 * schedulingService.saveRoster(roster) >> roster
+		0 * _
+		flash.message == 'Roster 1 has been updated'
+		response.redirectedUrl == '/roster/rosters'
+	}
+	
+	def 'a pool user can NOT update an invalid Roster'() {
+		given:
+		Long id = 1
+		Roster roster = validRoster()
+		params.name = ''
+		
+		when:
+		controller.update(id)
+		
+		then:
+		1 * schedulingService.roster(id) >> roster
+		roster.name == ''
+		1 * schedulingService.saveRoster(roster) >> null
+		0 * _
+		view == '/roster/edit'
+	}
+	
+	def 'a pool user can NOT update a Roster that cannot be found'() {
+		given:
+		Long id = 1
+		
+		when:
+		controller.update(id)
+		
+		then:
+		1 * schedulingService.roster(id) >> null
+		0 * _
+		flash.message == 'Roster 1 could not be found'
+		response.redirectedUrl == '/roster/rosters'
+	}
+	
 	def 'can delete a Roster'() {
 		given:
 		def id = 3

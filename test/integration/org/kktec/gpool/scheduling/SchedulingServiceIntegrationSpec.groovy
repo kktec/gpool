@@ -17,7 +17,7 @@ class SchedulingServiceIntegrationSpec extends IntegrationSpec {
 		types.contains 'Baseball'
 	}
 	
-	def 'can fetch a Type'() {
+	def 'can fetch a Type by id'() {
 		when:
 		Type type = schedulingService.type 1
 		
@@ -70,6 +70,14 @@ class SchedulingServiceIntegrationSpec extends IntegrationSpec {
 		
 		then:
 		Roster.list().size == 1
+	}
+	
+	def 'can fetch a Roster by id'() {
+		when:
+		Roster roster = schedulingService.roster 1
+		
+		then:
+		roster.name == 'NFL'
 	}
 
 }
