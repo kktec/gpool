@@ -1,3 +1,5 @@
+import grails.plugin.springsecurity.SecurityConfigType
+
 // locations to search for config files that get merged into the main config;
 // config files can be ConfigSlurper scripts, Java properties files, or classes
 // in the classpath in ConfigSlurper format
@@ -134,6 +136,7 @@ grails.plugin.springsecurity.userLookup.passwordPropertyName = 'passwordHash'
 grails.plugin.springsecurity.authority.className = 'org.kktec.security.Role'
 grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'org.kktec.security.UserRole'
 
+grails.plugin.springsecurity.securityConfigType = SecurityConfigType.Annotation
 grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	'/': ['permitAll'],
 	'/index': ['permitAll'],
@@ -146,6 +149,10 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	'/denied': ['permitAll'],
 	'/signOut': ['permitAll'],
 	
-	'/dbconsole*/**': ['ROLE_ADMIN'],
+	'/dbconsole/**': ['ROLE_ADMIN'],
+	
+	'/console*': ['ROLE_ADMIN'],
+	'/console/**': ['ROLE_ADMIN'],
+	'/plugins/console*/**': ['ROLE_ADMIN'],
 ]
 

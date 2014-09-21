@@ -89,6 +89,8 @@ grails.project.dependency.resolution = {
 		compile ":code-coverage:2.0.3-2"
 		compile ":codenarc:0.21"
 		
+		compile ':console:1.5.0'
+		
 		compile ":spring-security-core:$springSecurityVersion"
 		
 		compile ":joda-time:1.5"
